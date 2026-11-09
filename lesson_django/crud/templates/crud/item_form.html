@@ -1,0 +1,13 @@
+{% extends "crud/base.html" %}
+
+{% block title %}{% if object %}Изменить запись{% else %}Новая запись{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Изменить запись{% else %}Новая запись{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<p><a href="{% url 'crud:item_list' %}">Назад</a></p>
+{% endblock %}
